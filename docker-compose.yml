@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  config-server:
+    container_name: config-server
+    image: spring-cloud-config-server:latest
+    ports:
+      - "8888:8888"
+    environment:
+      - 'SPRING_CONFIG_GIT_URI=https://github.com/spring-cloud-samples/config-repo'
+      - 'SPRING_CONFIG_GIT_USERNAME=username'
+      - 'SPRING_CONFIG_GIT_PASSWORD=password'
