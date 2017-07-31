@@ -6,8 +6,8 @@ COPY . /opt/spring-cloud-config-server/
 WORKDIR /opt/spring-cloud-config-server/
 RUN mvn package
 WORKDIR /
-CMD java -Djava.security.egd=file:/dev/./urandom \
-    -jar /opt/spring-cloud-config-server/target/docker-spring-cloud-config-server-*.jar ${JAVA_OPTS} \
+CMD java -Djava.security.egd=file:/dev/./urandom ${JAVA_OPTS}\
+    -jar /opt/spring-cloud-config-server/target/docker-spring-cloud-config-server-*.jar \
     --server.port=8888 \
     --spring.config.name=application \
     --spring.cloud.config.server.git.uri=${SPRING_CONFIG_GIT_URI} \
